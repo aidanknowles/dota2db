@@ -7,7 +7,7 @@
 *		DATABASE:		Oracle Express Database 11g
 *
 * 		AUTHOR: 		Aidan Knowles
-* 			
+* 		STUDENT_NO:			
 * 		DATE:			24.4.2014
 *
 *	
@@ -348,6 +348,132 @@ ALTER TABLE Tournament ADD CONSTRAINT fk_Tournament_Country
 
 --------------------------------------------------------------------------------------------------------------
 
+
+/* 1c. 	AUTOINCREMENTING SEQUENCES AND TRIGGERS	 */
+
+
+-- TournamentID
+
+CREATE SEQUENCE SEQ_TournID;
+
+CREATE OR REPLACE TRIGGER TRIG_TournID
+	BEFORE INSERT ON Tournament
+	FOR EACH ROW
+BEGIN
+	:NEW.TournID := SEQ_TournID.NEXTVAL;
+END;
+/
+
+-- TeamID
+
+CREATE SEQUENCE SEQ_TeamID;
+
+CREATE OR REPLACE TRIGGER TRIG_TeamID
+	BEFORE INSERT ON Team
+	FOR EACH ROW
+BEGIN
+	:NEW.TeamID := SEQ_TeamID.NEXTVAL;
+END;
+/
+
+-- PlayerID
+
+CREATE SEQUENCE SEQ_PlayerID;
+
+CREATE OR REPLACE TRIGGER TRIG_PlayerID
+	BEFORE INSERT ON Player
+	FOR EACH ROW
+BEGIN
+	:NEW.PlayerID := SEQ_PlayerID.NEXTVAL;
+END;
+/
+
+-- ItemID
+
+CREATE SEQUENCE SEQ_ItemID;
+
+CREATE OR REPLACE TRIGGER TRIG_ItemID
+	BEFORE INSERT ON Item
+	FOR EACH ROW
+BEGIN
+	:NEW.ItemID := SEQ_ItemID.NEXTVAL;
+END;
+/
+
+-- HeroID
+
+CREATE SEQUENCE SEQ_HeroID;
+
+CREATE OR REPLACE TRIGGER TRIG_HeroID
+	BEFORE INSERT ON Hero
+	FOR EACH ROW
+BEGIN
+	:NEW.HeroID := SEQ_HeroID.NEXTVAL;
+END;
+/
+
+-- CountryID
+
+CREATE SEQUENCE SEQ_CountryID;
+
+CREATE OR REPLACE TRIGGER TRIG_CountryID
+	BEFORE INSERT ON Country
+	FOR EACH ROW
+BEGIN
+	:NEW.CountryID := SEQ_CountryID.NEXTVAL;
+END;
+/
+
+-- ComputerID
+
+CREATE SEQUENCE SEQ_ComputerID;
+
+CREATE OR REPLACE TRIGGER TRIG_ComputerID
+	BEFORE INSERT ON Computer
+	FOR EACH ROW
+BEGIN
+	:NEW.ComputerID := SEQ_ComputerID.NEXTVAL;
+END;
+/
+
+-- MouseID
+
+CREATE SEQUENCE SEQ_MouseID;
+
+CREATE OR REPLACE TRIGGER TRIG_MouseID
+	BEFORE INSERT ON Mouse
+	FOR EACH ROW
+BEGIN
+	:NEW.MouseID := SEQ_MouseID.NEXTVAL;
+END;
+/
+
+-- HeadsetID
+
+CREATE SEQUENCE SEQ_HeadsetID;
+
+CREATE OR REPLACE TRIGGER TRIG_HeadsetID
+	BEFORE INSERT ON Headset
+	FOR EACH ROW
+BEGIN
+	:NEW.HeadsetID := SEQ_HeadsetID.NEXTVAL;
+END;
+/
+
+-- KeyboardID
+
+CREATE SEQUENCE SEQ_KeyboardID;
+
+CREATE OR REPLACE TRIGGER TRIG_KeyboardID
+	BEFORE INSERT ON Keyboard
+	FOR EACH ROW
+BEGIN
+	:NEW.KeyboardID := SEQ_KeyboardID.NEXTVAL;
+END;
+/
+
+
+--------------------------------------------------------------------------------------------------------------
 
 
 /* 2. 	INNER JOINS (4)	 	*/
